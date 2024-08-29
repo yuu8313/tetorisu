@@ -1,0 +1,66 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000;
+    margin: 0;
+    color: #00FF00;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#left-panel, #right-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 20px;
+}
+
+#tetris {
+    background-color: #111;
+    border: 2px solid #9400D3;
+}
+
+#gameContainer {
+    position: relative;
+}
+
+#nextPiece {
+    margin-bottom: 20px;
+    border: 2px solid #9400D3;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px 0;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #111;
+    color: #00FF00;
+    border: 2px solid #00FF00;
+}
+
+#startScreen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px; /* フォントサイズを小さく調整 */
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px; /* パディングを少し減らす */
+    border: 1px solid #00FF00; /* 枠線を少し薄く */
+    text-align: center;
+    color: #00FF00;
+    width: 150px; /* メッセージ幅を調整 */
+}
+
+
+canvas {
+    display: block;
+}
