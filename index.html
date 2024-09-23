@@ -1,44 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="jp"> <!-- HTML文書の言語設定。Japanese(日本語)を指定 -->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tetris</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8"> <!-- 文書の文字エンコーディングをUTF-8に設定 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- モバイルデバイス対応。画面の幅に応じてコンテンツが縮小される(なお操作はできない模様) -->
+    <title>Tetris</title> <!-- ブラウザタブに表示されるページのタイトル -->
+    <link rel="stylesheet" href="styles.css"> <!-- 外部CSSファイルをリンク。ゲーム全体のスタイルを定義 -->
 </head>
 <body>
+    <!-- 左側のパネル: 次のピース表示やゲーム操作用のボタンが配置されている -->
     <div id="left-panel">
+        <!-- 次のピースを表示するためのキャンバス。次に落ちてくるブロックの形を描画 -->
         <div id="nextPiece">
-            <canvas id="next" width="120" height="120"></canvas>
+            <canvas id="next" width="120" height="120"></canvas> <!-- 次のピースを描画するキャンバス。120x120ピクセル -->
         </div>
+        <!-- ゲームをリセットするためのボタン -->
         <button id="resetButton">リセット</button>
+        <!-- ゲームを一時停止/再開するためのボタン -->
         <button id="pauseButton">ストップ</button>
     </div>
-    <div id="gameContainer" style="position: relative;"> <!-- ゲームコンテナの位置を明示的に設定 -->
-        <canvas id="tetris" width="200" height="400"></canvas> <!-- サイズ変更済み -->
-        <div id="startScreen">スペースキーを押してスタート</div> <!-- メッセージが収まるよう調整 -->
+    
+    <!-- ゲームのメインコンテナ。メインのテトリスキャンバスとスタート画面を含む -->
+    <div id="gameContainer" style="position: relative;"> <!-- position: relative; で中の要素を相対配置に -->
+        <!-- テトリスゲームが描画されるメインキャンバス。ゲームのプレイフィールドがここに表示される -->
+        <canvas id="tetris" width="200" height="400"></canvas> <!-- 200x400ピクセルのキャンバスで、1ブロック20pxのフィールドを持つ -->
+        <!-- ゲーム開始前のスタートメッセージ。ゲーム開始前に表示され、スペースキーでゲームが始まる -->
+        <div id="startScreen">スペースキーを押してスタート</div>
     </div>
+    
+    <!-- 右側のパネル: ゲームスコアを表示する領域 -->
     <div id="right-panel">
-        <div id="score">Score: 0</div>
+        <!-- 現在のスコアを表示。JavaScriptで動的にスコアが更新される -->
+        <div id="score">Score: 0</div> <!-- 初期スコアは0として表示 -->
     </div>
+
+    <!-- ゲーム中に使用するサウンドエフェクトとBGM -->
+    <!-- ループ再生されるBGM（バックグラウンドミュージック）の定義 -->
     <audio id="bgm" loop>
-        <source src="oto/bgm.mp3" type="audio/mp3">
+        <source src="oto/bgm.mp3" type="audio/mp3"> <!-- mp3形式のBGMを指定 -->
     </audio>
+    
+    <!-- ゲームオーバー時に再生されるサウンド -->
     <audio id="gameoverSound">
-        <source src="oto/gameover.mp3" type="audio/mp3">
+        <source src="oto/gameover.mp3" type="audio/mp3"> <!-- ゲームオーバー時のサウンドエフェクト -->
     </audio>
+    
+    <!-- ラインが消えた時に再生されるサウンド -->
     <audio id="lineClearSound">
-        <source src="oto/lineclear.mp3" type="audio/mp3">
+        <source src="oto/lineclear.mp3" type="audio/mp3"> <!-- ラインクリア時のサウンドエフェクト -->
     </audio>
+    
+    <!-- ブロックが動く時に再生されるサウンド -->
     <audio id="moveSound">
-        <source src="oto/move.mp3" type="audio/mp3">
+        <source src="oto/move.mp3" type="audio/mp3"> <!-- ブロック移動時のサウンドエフェクト -->
     </audio>
+    
+    <!-- 残骸 -->
     <audio id="warningSound">
-        <source src="oto/warning.mp3" type="audio/mp3">
+        <source src="oto/warning.mp3" type="audio/mp3"> <!-- 警告音（だったもの　今はない） -->
     </audio>
+    
+    <!-- ブロックが設置された時に再生されるサウンド -->
     <audio id="placeSound">
-        <source src="oto/place.mp3" type="audio/mp3">
+        <source src="oto/place.mp3" type="audio/mp3"> <!-- ブロックがフィールドに設置された際のサウンドエフェクト -->
     </audio>
+
+    <!-- ゲームのロジックを制御するJavaScriptファイルを読み込む -->
     <script src="game.js"></script>
 </body>
 </html>
