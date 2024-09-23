@@ -1,66 +1,73 @@
+/* 全体のスタイル設定 */
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #000;
-    margin: 0;
-    color: #00FF00;
-    font-family: 'Courier New', Courier, monospace;
+    display: flex; /* 要素をフレックスボックスで配置 */
+    justify-content: center; /* コンテンツを水平方向に中央揃え */
+    align-items: center; /* コンテンツを垂直方向に中央揃え */
+    height: 100vh; /* 画面全体の高さを設定 */
+    background-color: #000; /* 背景を黒に設定 */
+    margin: 0; /* ページ全体の余白をなくす */
+    color: #00FF00; /* テキストの色を蛍光色の緑に設定 */
+    font-family: 'Courier New', Courier, monospace; /* テキストのフォントを等幅フォントに設定 */
 }
 
+/* 左側と右側のパネルのスタイル設定 */
 #left-panel, #right-panel {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0 20px;
+    display: flex; /* パネル内の要素をフレックスボックスで配置 */
+    flex-direction: column; /* 要素を縦方向に並べる */
+    justify-content: center; /* コンテンツを垂直方向に中央揃え */
+    align-items: center; /* コンテンツを水平方向に中央揃え */
+    margin: 0 20px; /* パネルの左右に余白を設定 */
 }
 
+/* テトリスゲームのメインキャンバスのスタイル */
 #tetris {
-    background-color: #111;
-    border: 2px solid #9400D3;
+    background-color: #111; /* キャンバスの背景色を暗いグレーに設定 */
+    border: 2px solid #9400D3; /* キャンバスの周囲に紫色のボーダーを設定 */
 }
 
+/* ゲームコンテナ全体のスタイル */
 #gameContainer {
-    position: relative;
+    position: relative; /* ゲーム内の要素を相対配置で位置決めするために設定 */
 }
 
+/* 次のピースを表示する領域のスタイル */
 #nextPiece {
-    margin-bottom: 20px;
-    border: 2px solid #9400D3;
-    width: 120px;
-    height: 120px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin-bottom: 20px; /* 次のピース表示領域の下に余白を追加 */
+    border: 2px solid #9400D3; /* 紫色のボーダーを設定 */
+    width: 120px; /* 幅を120ピクセルに設定 */
+    height: 120px; /* 高さを120ピクセルに設定 */
+    display: flex; /* フレックスボックスを使用して中身を中央揃え */
+    justify-content: center; /* 水平方向に中央揃え */
+    align-items: center; /* 垂直方向に中央揃え */
 }
 
+/* ボタンのスタイル */
 button {
-    padding: 10px 20px;
-    margin: 10px 0;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #111;
-    color: #00FF00;
-    border: 2px solid #00FF00;
+    padding: 10px 20px; /* 内側に余白を設定 */
+    margin: 10px 0; /* 上下に10ピクセルの余白を設定 */
+    font-size: 16px; /* ボタンのテキストサイズを16ピクセルに設定 */
+    cursor: pointer; /* ボタンにカーソルを合わせた時にポインタ表示 */
+    background-color: #111; /* ボタンの背景色を暗いグレーに設定 */
+    color: #00FF00; /* テキストの色を蛍光グリーンに設定 */
+    border: 2px solid #00FF00; /* ボタンのボーダーを蛍光グリーンに設定 */
 }
 
+/* ゲーム開始時のスタート画面のスタイル */
 #startScreen {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 14px; /* フォントサイズを小さく調整 */
-    background: rgba(0, 0, 0, 0.8);
-    padding: 10px; /* パディングを少し減らす */
-    border: 1px solid #00FF00; /* 枠線を少し薄く */
-    text-align: center;
-    color: #00FF00;
-    width: 150px; /* メッセージ幅を調整 */
+    position: absolute; /* 絶対位置で配置。ゲーム画面中央に配置するため */
+    top: 50%; /* 上から50%の位置に設定（中央寄せ） */
+    left: 50%; /* 左から50%の位置に設定（中央寄せ） */
+    transform: translate(-50%, -50%); /* 要素の中央を基準に正確に中央揃え */
+    font-size: 14px; /* フォントサイズを14ピクセルに設定 */
+    background: rgba(0, 0, 0, 0.8); /* 背景を半透明の黒に設定 */
+    padding: 10px; /* 内側に10ピクセルの余白を設定 */
+    border: 1px solid #00FF00; /* ボーダーを蛍光グリーンに設定 */
+    text-align: center; /* テキストを中央揃えにする */
+    color: #00FF00; /* テキストの色を蛍光グリーンに設定 */
+    width: 150px; /* 幅を150ピクセルに設定 */
 }
 
-
+/* キャンバスのスタイル。次のピースやメインキャンバス共通 */
 canvas {
-    display: block;
+    display: block; /* ブラウザがキャンバスの前に不要な余白を挿入しないようにする */
 }
